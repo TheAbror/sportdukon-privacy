@@ -130,10 +130,15 @@
       <p>Buyurtmangizni yetkazib beruvchi kuryer ismingiz, telefon raqamingiz, manzilingiz va buyurtma tarkibini ko'radi. Qonunda nazarda tutilgan hollarda ma'lumotlar vakolatli davlat organlariga berilishi mumkin.</p>
     </section>
 
-    <section>
+    <section id="delete">
       <h2><span>4</span>Saqlash muddati va hisobni o'chirish</h2>
-      <p>Ma'lumotlaringiz hisobingiz mavjud bo'lgan davrda saqlanadi. Hisobingizni istalgan vaqtda ilovaning o'zida o'chirishingiz mumkin: <b>Profil → Sozlamalar → Hisobni o'chirish</b>.</p>
-      <p>Hisob o'chirilganda profilingiz, o'lchamlaringiz va saqlangan manzillaringiz darhol o'chiriladi. Avval berilgan buyurtmalar hisob yuritish uchun saqlanib qoladi, lekin ular endi hisobingizga bog'lanmaydi.</p>
+      <p>Ma'lumotlaringiz hisobingiz mavjud bo'lgan davrda saqlanadi. Hisobni o'chirishning ikki yo'li bor:</p>
+      <ul>
+        <li><b>Ilovada:</b> Profil → Sozlamalar → Hisobni o'chirish → tasdiqlang. Hisob darhol o'chiriladi.</li>
+        <li><b>Ilovasiz:</b> Telegram orqali (pastdagi "Aloqa" bo'limi) hisobingizga bog'langan telefon raqamini yozib, o'chirishni so'rang. Raqam sizniki ekanini tekshirib, 7 kun ichida o'chiramiz.</li>
+      </ul>
+      <p><b>O'chiriladi:</b> profil (ism, telefon raqami), kiyim o'lchamlari, saqlangan manzillar.</p>
+      <p><b>Saqlanib qoladi:</b> avval berilgan buyurtmalar (buyurtmadagi ism, telefon, manzil va mahsulotlar) qonunda belgilangan hisob yuritish muddati davomida. Ular endi hisobingizga bog'lanmaydi.</p>
     </section>
 
     <section>
@@ -214,10 +219,15 @@
       <p>Курьер, который доставляет заказ, видит ваше имя, телефон, адрес и состав заказа. В случаях, предусмотренных законом, данные могут быть переданы уполномоченным государственным органам.</p>
     </section>
 
-    <section>
+    <section id="ru-delete">
       <h2><span>4</span>Срок хранения и удаление аккаунта</h2>
-      <p>Данные хранятся, пока существует ваш аккаунт. Удалить аккаунт можно в любой момент в самом приложении: <b>Профиль → Настройки → Удалить аккаунт</b>.</p>
-      <p>При удалении аккаунта профиль, размеры и сохранённые адреса удаляются сразу. Ранее оформленные заказы сохраняются для учёта, но больше не связаны с вашим аккаунтом.</p>
+      <p>Данные хранятся, пока существует ваш аккаунт. Удалить аккаунт можно двумя способами:</p>
+      <ul>
+        <li><b>В приложении:</b> Профиль → Настройки → Удалить аккаунт → подтвердите. Аккаунт удаляется сразу.</li>
+        <li><b>Без приложения:</b> напишите нам в Telegram (раздел «Контакты» ниже) номер телефона, к которому привязан аккаунт, и попросите удалить его. Мы проверим, что номер ваш, и удалим аккаунт в течение 7 дней.</li>
+      </ul>
+      <p><b>Удаляются:</b> профиль (имя, номер телефона), размеры одежды, сохранённые адреса.</p>
+      <p><b>Сохраняются:</b> ранее оформленные заказы (имя, телефон, адрес и товары в заказе) в течение срока, установленного законом для учёта. Они больше не связаны с вашим аккаунтом.</p>
     </section>
 
     <section>
@@ -260,7 +270,8 @@
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
   }
   buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.lang)));
-  if (location.hash === '#ru') show('ru');
+  if (location.hash === '#ru' || location.hash === '#ru-delete') show('ru');
+  if (location.hash) { const t = document.getElementById(location.hash.slice(1)); if (t && t.tagName === 'SECTION') t.scrollIntoView(); }
 </script>
 </body>
 </html>
